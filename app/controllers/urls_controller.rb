@@ -11,4 +11,10 @@ class UrlsController < ApplicationController
       render 'new'
     end
   end
+
+  private
+
+    def url_params
+      params.require(:url).permit(:original_url)
+    end
 end
