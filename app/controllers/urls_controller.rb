@@ -12,6 +12,10 @@ class UrlsController < ApplicationController
     end
   end
 
+  def show
+    @url = Url.find(params[:id])
+  end
+
   private
 
     def url_params
