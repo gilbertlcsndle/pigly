@@ -5,10 +5,17 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.new(url_params)
-    if @url.save
-      redirect_to @url
+
+    duplicated_url = Url.find_by(original_url: @url.original_url)
+
+    if duplicated_url.nil?
+      if @url.save
+        redirect_to @url
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      redirect_to duplicated_url
     end
   end
 
