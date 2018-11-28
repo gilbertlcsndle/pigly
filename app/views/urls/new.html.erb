@@ -1,4 +1,17 @@
-<%= form_for @url do |f| %>
-  <%= f.url_field :original_url %>
-  <%= f.submit %>
-<% end %>
+<main>
+  <div class="container">
+		<div class="container__item">
+      <div class='header'>
+        <h1>
+          <%= image_tag 'pig.png', width: 70, style: 'vertical-align: middle' %>
+          Pig<span style='color: #2e2e2e'>ly</span>
+        </h1>
+      </div>
+
+      <%= form_for @url, html: { class: 'form' } do |f| %>
+        <%= f.url_field :original_url, placeholder: 'Paste your long url', class: 'form__field' %>
+        <%= f.submit 'Eat', class: 'btn btn--primary btn--inside uppercase' %>
+      <% end %>
+    </div>
+  </div>
+</main>
