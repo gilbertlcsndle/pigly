@@ -11,7 +11,8 @@
       </div>
 
       <%= form_for @url, html: { class: 'form' } do |f| %>
-        <%= f.text_field :original_url, placeholder: 'http:// or https://', class: 'form__field' %>
+        <%= f.text_field :original_url, placeholder: 'http:// or https://',
+              class: 'form__field', autofocus: true %>
         <%= f.submit 'Eat', class: 'btn btn--primary btn--inside uppercase' %>
       <% end %>
 
