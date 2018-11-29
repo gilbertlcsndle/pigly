@@ -15,7 +15,7 @@ class UrlsController < ApplicationController
         render 'new'
       end
     else
-      redirect_to duplicated_url
+      redirect_to url_path(duplicated_url, dup: 1)
     end
   end
 

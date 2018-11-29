@@ -2,8 +2,12 @@
   <div class="container">
 		<div class="container__item" style='text-align: center;word-wrap: break-word;'>
       <%= image_tag 'pig-nose.png', width: 100 %>
-      <h1>Your long url was successfully eaten!</h1>
-      <h2 style='color: #2e2e2e'><%= @url.original_url %></h2>
+      <% if params[:dup] %>
+        <h1>Your long url has been digested before!</h1>
+      <% else %>
+        <h1>Your long url has been digested!</h1>
+      <% end %>
+      <h3 style='color: #2e2e2e'>Here's the shortened url. <br> Click the button below to copy</h3>
 
 			<input id="shortened-url" class='form__field' value="<%= request.host_with_port + '/' + @url.short_url %>">
 			<button class="btn btn--primary btn--inside uppercase" data-clipboard-target="#shortened-url">
