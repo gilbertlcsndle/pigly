@@ -6,10 +6,12 @@
           <%= image_tag 'pig.png', width: 70, style: 'vertical-align: middle' %>
           Pig<span style='color: #2e2e2e'>ly</span>
         </h1>
+
+        <h3>Paste your long url below to shorten</h3>
       </div>
 
       <%= form_for @url, html: { class: 'form' } do |f| %>
-        <%= f.url_field :original_url, placeholder: 'Paste your long url', class: 'form__field' %>
+        <%= f.url_field :original_url, placeholder: 'http:// or https://', class: 'form__field' %>
         <%= f.submit 'Eat', class: 'btn btn--primary btn--inside uppercase' %>
       <% end %>
     </div>
