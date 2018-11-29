@@ -11,9 +11,19 @@
       </div>
 
       <%= form_for @url, html: { class: 'form' } do |f| %>
-        <%= f.url_field :original_url, placeholder: 'http:// or https://', class: 'form__field' %>
+        <%= f.text_field :original_url, placeholder: 'http:// or https://', class: 'form__field' %>
         <%= f.submit 'Eat', class: 'btn btn--primary btn--inside uppercase' %>
       <% end %>
+
+      <ul>
+        <% @url.errors.messages.each do |attr, msgs| %>
+          <% msgs.each do |msg| %>
+            <li style='color: #DD2C00;'>
+                <%= msg %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
     </div>
   </div>
 </main>
