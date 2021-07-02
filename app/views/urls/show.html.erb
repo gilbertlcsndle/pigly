@@ -1,21 +1,29 @@
-<main>
-  <div class="container">
-		<div class="container__item" style='text-align: center;word-wrap: break-word;'>
-      <%= image_tag 'pig-nose.png', width: 100 %>
-      <% if params[:dup] %>
-        <h1>Your long url has been digested before.</h1>
-      <% else %>
-        <h1>Your long url has been digested!</h1>
-      <% end %>
-      <h3 style='color: #2e2e2e'>Here's the shortened url. <br> Click the button below to copy</h3>
+<div class="container">
+  <div class="container__item" style='text-align: center;word-wrap: break-word;'>
 
-			<input id="shortened-url" class='form__field' value="<%= request.host_with_port + '/' + @url.short_url %>" readonly>
-			<button class="btn btn--primary btn--inside uppercase" data-clipboard-target="#shortened-url">
-				Copy
-			</button>
+    <% if params[:dup] %>
+      <%= image_tag 'https://media4.giphy.com/media/ZXlDOOsfV0a8U/giphy.gif?cid=ecf05e47xksmqlags6qbrmlym6jepmkhs6ffldyymcqtzd1k&rid=giphy.gif&ct=g', class: 'pig-gif' %>
+      <h1 style='margin-top: 0;'>Your long url has been digested before.</h1>
+    <% else %>
+      <%= image_tag 'https://media1.tenor.com/images/7cd6bda7d5014fc46626d2b6305c9e40/tenor.gif?itemid=7840768', class: 'pig-gif' %>
+      <h1>Your long url has been digested!</h1>
+    <% end %>
+    <h3 style='color: #2e2e2e'>Here's the shortened url.</h3>
+
+    <div class="form__field-wrapper">
+      <input id="shortened-url" class='form__field' value="<%= root_url + @url.short_url %>" readonly>
+      <button class="btn btn--primary btn--inside uppercase" data-clipboard-target="#shortened-url">
+        Copy
+      </button>
     </div>
+
+    <%= link_to root_path, class: 'try-again' do %>
+      <i class="fas fa-redo-alt"></i>
+    <% end %>
   </div>
-</main>
+
+</div>
+
 
 <script>
   new ClipboardJS('.btn');
